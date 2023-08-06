@@ -1,0 +1,32 @@
+def binary_search(arr, x):
+    left, right = 0, len(arr) - 1
+    result = []
+
+    while left <= right:
+        mid = left + (right - left) // 2
+
+        if arr[mid] == x:
+            result.append(mid)
+            left = mid + 1  # Move to the right to find other occurrences
+        elif arr[mid] < x:
+            left = mid + 1
+        else:
+            right = mid - 1
+
+    return result
+
+# Data array
+data = [19, 40, 10, 90, 2, 50, 60, 50, 1]
+
+# Test Case
+test_cases = [1, 50, 100]
+
+for test in test_cases:
+    result = binary_search(data, test)
+    if result:
+        print(f"Input: {test}")
+        print(f"Output: Angka {test} ada di indeks ke {', '.join(map(str, result))}")
+    else:
+        print(f"Input: {test}")
+        print(f"Output: Angka {test} tidak ada dalam array")
+    print()
