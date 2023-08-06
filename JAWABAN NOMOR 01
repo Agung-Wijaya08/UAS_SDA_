@@ -1,0 +1,46 @@
+def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n - 1):
+        for j in range(0, n - i - 1):
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+
+def selection_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        min_index = i
+        for j in range(i + 1, n):
+            if arr[j] < arr[min_index]:
+                min_index = j
+        arr[i], arr[min_index] = arr[min_index], arr[i]
+
+# Data awal sebelum diurutkan
+data = [
+    ("Fahmi", "Jakarta"),
+    ("Romi", "Solo"),
+    ("Andri", "Jakarta"),
+    ("Fadillah", "Banyuwangi"),
+    ("Ruli", "Bandung"),
+    ("Rudi", "Bali"),
+    ("Dendi", "Purwokerto"),
+    ("Zaki", "Madiun")
+]
+
+# Ubah data ke dalam bentuk daftar
+data_list = [nama + " " + alamat for nama, alamat in data]
+
+# Bubble Sort
+bubble_sorted_data = data_list.copy()
+bubble_sort(bubble_sorted_data)
+print("Hasil Bubble Sort:")
+for item in bubble_sorted_data:
+    print(item)
+
+print()
+
+# Selection Sort
+selection_sorted_data = data_list.copy()
+selection_sort(selection_sorted_data)
+print("Hasil Selection Sort:")
+for item in selection_sorted_data:
+    print(item)
